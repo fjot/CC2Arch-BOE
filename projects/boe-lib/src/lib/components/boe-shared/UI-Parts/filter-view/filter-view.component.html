@@ -1,0 +1,21 @@
+<div class="header" >
+  <p class="title" i18n="@@TreeTitle">Übersicht</p>
+  <div class="toolbarContent">
+    <div class="actionButtonsLeft">
+      <button kendoButton [look]="'flat'" [icon]="'plus'" (click)="addNewEntity()" [disabled]="false" ></button>
+      <button kendoButton [look]="'flat'" [icon]="'delete'" (click)="deleteEntity()" [disabled]="hasSelectedItem"></button>
+    </div>
+    <div class="spacer"></div>
+    <div class="actionButtonsRight">
+      <button kendoButton [look]="'flat'" [icon]="sortTypeString" (click)="invertSort()" [disabled]="false" ></button>
+      <button kendoButton [look]="'flat'" [icon]="'search'" (click)="invertSearch()"></button>
+    </div>
+  </div>
+  <div class="filterbarContent" *ngIf="searchVisible">
+    <input [(ngModel)]="searchTerm" i18n="@@Search" placeholder="Search" class="input"/>
+    <div class="searchButtonsRight">
+      <button kendoButton [look]="'flat'" [icon]="'check'" (click)="search()" [disabled]="false" ></button>
+      <button kendoButton [look]="'flat'" [icon]="'x'" (click)="cancelSearch()" [disabled]="false"></button>
+    </div>
+  </div>
+</div>

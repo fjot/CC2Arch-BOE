@@ -1,0 +1,50 @@
+
+<div class="details">
+  <div class="header">
+    <p class="title" i18n="@@DetailTitle">Entitydetails</p>
+    <div class="spacer" ></div>
+    <div class="actionButtonRight" *ngIf="visible$ | async">
+      <button kendoButton [look]="'flat'" [icon]="'save'" (click)="submit()" [disabled]="formNotValid$ | async"></button>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()"  >
+  <div class="detailsMultiTab" *ngIf="multiTabLayout$ | async">
+      <kendo-tabstrip class="tabRegion">
+        <kendo-tabstrip-tab *ngFor="let tab of tabs;let index = index;" [title]="tab.tabName" [selected]="tab.isSelected" >
+          <ng-template kendoTabContent>
+            <div class="formlyLayout">
+              <formly-form
+                  [model]="model"
+                  [form]="form.at(index)"
+                  [fields]="tab.fields"
+                  [options]="options[index]"
+                  (modelChange)="modelChange($event)">
+              </formly-form>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+      </kendo-tabstrip>
+  </div>
+
+  <div class="detailsSingleTab" *ngIf="singleTabLayout$ | async">
+      <formly-form
+        [model]="model"
+        [form]="form.at(0)"
+        [fields]="tabs[0].fields"
+        [options]="options[0]"
+        (modelChange)="modelChange($event)">
+      </formly-form>
+  </div>
+  </form>
+
+  <kendo-dialog title="Speichern" *ngIf="showUnsavedQuestion$ | async" (close)="closeDialog()">
+    <p style="margin: 30px; text-align: center;" i18n="@@DetailHasChanges">Es liegen nicht gespeicherte Daten vor. Sollen Sie gespeichert werden?</p>
+    <kendo-dialog-actions>
+        <button kendoButton (click)="saveDialog()" [primary]="false" i18n="@@DetailSave">Speichern</button>
+        <button kendoButton (click)="rejectDialog()" [primary]="false" i18n="@@DetailReject">Verwerfen</button>
+        <button kendoButton (click)="closeDialog()" [primary]="true" i18n="@@DetailCancel">Abbrechen</button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+</div>
+

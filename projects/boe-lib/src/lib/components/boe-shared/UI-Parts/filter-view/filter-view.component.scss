@@ -1,0 +1,52 @@
+@import '~@proleit/sdk-styles/src/styleguide-variables.scss';
+
+div.header{
+  background-color: #f8f8f8;
+  color: $p-theme-secondary-color-light;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  height: auto;
+
+  p.title {
+    font-size: 30;
+    font-weight: bold;
+    height: 34;
+    margin-left: 5px;
+  }
+  div.toolbarContent {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 100%;
+    border: 1px solid #D7D7D7;
+
+    div.actionButtonsLeft {
+      float: left;
+    }
+    div.spacer {
+      flex: 1 1 auto;
+    }
+    div.actionButtonsRight {
+      float: right;
+      margin: auto;
+    }
+  }
+  div.filterbarContent {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 100%;
+    border: 1px solid #D7D7D7;
+
+    input.input {
+      flex: 1 1 auto;
+      float: left;
+      border: 1px solid #D7D7D7;
+    }
+    div.searchButtonsRight {
+      float: right;
+      margin: auto;
+    }
+  }
+}

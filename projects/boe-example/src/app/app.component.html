@@ -1,0 +1,22 @@
+
+<plantit-web-frame
+  [pageTitle]="title"
+  [language]="locale" >
+</plantit-web-frame>
+
+<div class="banner">
+  <h1 class="title" i18n="@@Title">BusinessObject-Editor</h1>
+</div>
+            
+<nav>
+      <div routerLinkActive="active">
+          <a class="nav-link" routerLink="tree">EquipmentTree</a>
+          <a class="nav-link" routerLink="list">EquipmentList</a>
+          <a class="nav-link" routerLink="matlist">MaterialList</a>
+          <a class="nav-link" routerLink="details">EquipmentDetails</a>
+      </div>
+</nav>
+
+<router-outlet></router-outlet>
+<plantit-web-footer [text]="copyrightStatement"></plantit-web-footer>
+

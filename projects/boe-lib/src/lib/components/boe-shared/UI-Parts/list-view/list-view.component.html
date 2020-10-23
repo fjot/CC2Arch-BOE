@@ -1,0 +1,16 @@
+<div class="tree-wrapper">
+  <div *ngIf="isLoading" class="k-i-loading"> </div>
+  <p *ngIf="(!listData || listData.length < 1) && !isLoading" class="NoData" i18n="@@KeineDaten">Keine Daten vorhanden!</p>
+  <kendo-treeview class="treeView"
+    [nodes]="listData"
+    [animate]="false"
+    kendoTreeViewSelectable
+    [selectBy]="'id'"
+    [(selectedKeys)]="selectedKeys"
+    (selectionChange)="handleSelection($event)" >
+    <ng-template kendoTreeViewNodeTemplate let-dataItem>
+      <span class="k-icon k-i-{{ dataItem.iconKey }}"></span>
+      {{dataItem.name}}
+    </ng-template>
+  </kendo-treeview>
+</div>

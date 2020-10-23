@@ -1,0 +1,10 @@
+:host {
+  width: 100%;
+  display: block;
+
+  div.editor {
+    display: grid;
+    height: auto;
+    grid-template-columns: 25% 75%;
+  }
+}

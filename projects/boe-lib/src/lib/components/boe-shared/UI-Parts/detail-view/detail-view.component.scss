@@ -1,0 +1,65 @@
+@import '~@proleit/sdk-styles/src/styleguide-variables.scss';
+
+div.details{
+ height: 100%;
+ align-content: stretch;
+ 
+  div.header{
+    background-color:#f8f8f8;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    color: $p-theme-secondary-color-light;
+
+    p.title {
+      font-size: 30;
+      font-weight: bold;
+      height: 34;
+      margin-left: 5px;
+    }
+
+    div.spacer {
+      width: 90%;
+    }
+
+    div.actionButtonRight{
+      float: right;
+      margin: auto;
+    }
+  }
+
+  div.detailsMultiTab{
+    margin-top: -8px;
+    margin-left: 5px;
+    height: 100%;
+    align-content: stretch;
+    .tabRegion{
+      height: 77vh;
+    }
+  }
+  div.detailsSingleTab{
+    margin-left: 5px;
+    height: 76vh;
+    align-content: stretch;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(106, 137, 171, 1);;
+  }
+}
+
+div.editRow {
+  display: flex;
+  orientation: horizontal;
+  width: 100%;
+
+  div.col-required {
+    width: 10px;
+  }
+  label.col-label{
+    min-width: 50 px;
+  }
+  col-Value {
+    width: 100%;
+    align-content: inline-block;
+  }
+}

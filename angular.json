@@ -1,0 +1,168 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1, 
+  "newProjectRoot": "projects",
+  "projects": {
+    "boe-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/boe-example",
+      "sourceRoot": "projects/boe-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/boe-example",
+            "index": "projects/boe-example/src/index.html",
+            "main": "projects/boe-example/src/main.ts",
+            "polyfills": "projects/boe-example/src/polyfills.ts",
+            "tsConfig": "projects/boe-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/boe-example/src/favicon.ico",
+              "projects/boe-example/src/assets"
+            ],
+            "styles": [
+              "projects/boe-example/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/boe-example/src/environments/environment.ts",
+                  "with": "projects/boe-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "boe-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "boe-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "boe-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/boe-example/src/test.ts",
+            "polyfills": "projects/boe-example/src/polyfills.ts",
+            "tsConfig": "projects/boe-example/tsconfig.spec.json",
+            "karmaConfig": "projects/boe-example/karma.conf.js",
+            "assets": [
+              "projects/boe-example/src/favicon.ico",
+              "projects/boe-example/src/assets"
+            ],
+            "styles": [
+              "projects/boe-example/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/boe-example/tsconfig.app.json",
+              "projects/boe-example/tsconfig.spec.json",
+              "projects/boe-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/boe-example/e2e/protractor.conf.js",
+            "devServerTarget": "boe-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "boe-example:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "boe-lib": {
+      "projectType": "library",
+      "root": "projects/boe-lib",
+      "sourceRoot": "projects/boe-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/boe-lib/tsconfig.lib.json",
+            "project": "projects/boe-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/boe-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/boe-lib/src/test.ts",
+            "tsConfig": "projects/boe-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/boe-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/boe-lib/tsconfig.lib.json",
+              "projects/boe-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "boe-example"
+}

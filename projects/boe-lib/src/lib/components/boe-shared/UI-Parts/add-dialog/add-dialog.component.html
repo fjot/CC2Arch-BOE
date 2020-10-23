@@ -1,0 +1,14 @@
+<kendo-dialog i18n-title="@@AddDialogTitle" title="Erstellen" *ngIf="addEntityVisible" (close)="closeAddDialog()" [width]="700" class="edit" >
+  <form [formGroup]="createForm" (ngSubmit)="submit()" >
+    <formly-form
+      [form]="createForm"
+      [model]="createModel"
+      [fields]="createFieldLayout">
+    </formly-form>
+  </form>
+
+  <kendo-dialog-actions>
+      <button kendoButton (click)="submit()" [primary]="false" [disabled]="!createForm.valid" i18n="@@AddDialogSave">Speichern</button>
+      <button kendoButton (click)="closeAddDialog()" [primary]="true" i18n="@@AddDialogCancel">Abbrechen</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

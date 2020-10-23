@@ -1,0 +1,7 @@
+<kendo-dialog i18n-title="@@DeleteDialogTitle" title="Löschen" *ngIf="deleteEntityVisible" (close)="closeDeleteDialog()" [width]="500" class="warning">
+  <p style="margin: 30px; text-align: center;">{{message}}</p>
+  <kendo-dialog-actions>
+      <button kendoButton (click)="applyDeleteDialog()" [primary]="false" i18n="@@DeleteDialogDelete">Löschen</button>
+      <button kendoButton (click)="closeDeleteDialog()" [primary]="true" i18n="@@DeleteDialogCancel">Abbrechen</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

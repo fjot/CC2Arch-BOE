@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  plantit-web-frame {
+    flex: 0;
+    flex-basis: 50px;
+    position: initial;
+  }
+  div.banner {
+    align-items: center;
+    background-color: #6a89ab;
+    box-sizing: border-box;
+    display: flex;
+    height: 64px;
+    padding: 12px;
+    h1.title {
+      color: #ffffff;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: bold;
+      margin: 0;
+      overflow: hidden;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  a.nav-link {
+    margin: 10px;
+    background-color: lightgrey;
+  }
+
+  //div.content {
+  //  display: flex;
+  //}
+  plantit-web-footer {
+    height: 20px;
+  }
+}
