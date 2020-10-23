@@ -1,4 +1,4 @@
-### Business Object Editor Library
+# Business Object Editor Library
 
 The business Object Library from now ```boe``` contains Angular components, which may be used in other Angular projects.
 
@@ -11,14 +11,11 @@ Modules:
 Services:
 * [](#)
 
-## Name of Module
+## BOEDetailModule
 
-# Overview
+### Overview
+This module ....
 
-
-# API
+### API
 
 ```import {BOEDetailModule} from '@boe-lib'```
-
-# 
-<boe-detail>
